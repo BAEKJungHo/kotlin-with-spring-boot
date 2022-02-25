@@ -1,6 +1,5 @@
 package me.baek.study.controller.model.http
 
-import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.databind.PropertyNamingStrategies
 import com.fasterxml.jackson.databind.annotation.JsonNaming
 
@@ -8,9 +7,8 @@ data class UserResponse(
         var result: Result? = null,
         var description: String? = null,
 
-        @JsonProperty("user")
-        var userRequest: MutableList<UserRequest>? = null,
-
+//        @JsonProperty("user")
+        var user: MutableList<UserRequest>? = null,
 )
 
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy::class)
