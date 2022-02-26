@@ -1,6 +1,6 @@
 package me.baek.study.controller.model.http
 
-import jdk.jshell.spi.ExecutionControlProvider
+import me.baek.study.annotation.StringFormatDateTime
 import java.lang.Exception
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -29,11 +29,13 @@ data class UserRequest(
         @field:Pattern(regexp = "^\\d{2,3}-\\d{3,4}-\\d{4}\$")
         var phoneNumber:String?=null,
 
+        @field:StringFormatDateTime(pattern = "yyyy-MM-dd HH:mm:ss", message = "패턴이 올바르지 않습니다.")
         var createdAt:String?=null // yyyy-MM-dd HH:mm:ss
 ) {
     // @AssertTrue 를 붙이면 Validation 이 일어날 때, 해당 어노테이션이 붙은 메서드를 참고하여 실행시킨다.
     // @AssertTrue : 해당 메서드의 결과가 true 인지 검증
     // @AssertFalse : 해당 메서드의 결과가 false 인지 검증
+/*
     @AssertTrue(message = "생성일자의 패턴은 yyyy-MM-dd HH:mm:ss 여야 합니다.")
     private fun isValidCreatedAt(): Boolean {
         return try {
@@ -43,4 +45,5 @@ data class UserRequest(
             false
         }
     }
+ */
 }
